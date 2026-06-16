@@ -43,4 +43,4 @@ This project is licensed under the MIT License.
 
 ### Contract Detail
 ID: CBRIWWK6PV7NW5UAEMHSTLECFDDD7XVZWYEZHV3MCSOOPXDBCZO5BA5I
-![alt text](image.png)
+![alt text](image.jpg)
