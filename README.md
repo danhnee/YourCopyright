@@ -1,64 +1,46 @@
-# YourCopyright - Digital Asset Protection Platform
+# YourCopyright
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Network: Testnet](https://img.shields.io/badge/Network-Stellar_Testnet-orange.svg)
-![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)
+## Project Title
+YourCopyright
 
-**YourCopyright** is a decentralized smart contract built on the Stellar blockchain using the Soroban SDK. It serves as an immutable registry for intellectual property, allowing creators to digitally mint, protect, and verify ownership of various digital assets such as Books, Music, Artwork, and Source Code.
+## Project Description
+YourCopyright is a decentralized smart contract built on the Stellar blockchain using the Soroban SDK. It serves as an immutable registry for intellectual property, allowing creators to digitally mint, protect, and verify ownership of various digital assets such as Books, Music, Artwork, and Source Code securely and trustlessly.
 
----
+## Project Vision
+The vision of YourCopyright is to offer creators, authors, and developers a decentralized, secure, and automated way to register and protect their intellectual property without relying on centralized copyright agencies. This guarantees transparent ownership enforcement, preventing plagiarism and increasing trust in digital asset distribution.
 
-## 🔗 Smart Contract Details
-
-- **Network:** Stellar Testnet
-- **Contract ID:** `CBRIWWK6PV7NW5UAEMHSTLECFDDD7XVZWYEZHV3MCSOOPXDBCZO5BA5I`
-- **SDK Version:** Soroban SDK v25.0.2
-
-## ✨ Key Features
-
-- **Multi-Asset Registration:** Protect any digital asset class (Books, Art, Music, Video, Code).
-- **Cryptographic Fingerprinting:** Links assets to their original files using SHA-256 hashes (`file_hash`), ensuring the content cannot be altered without detection.
+## Key Features
+- **Multi-Asset Registration:** Protect any digital asset class including books, art, music, video, and code.
+- **Cryptographic Fingerprinting:** Links assets to their original files using SHA-256 hashes (`file_hash`), ensuring content cannot be altered.
 - **Immutable Ownership:** Permanently binds a unique Asset ID to the creator's wallet address.
 - **Anti-Overwrite Protection:** Built-in safeguards prevent malicious users from overriding existing asset IDs.
 - **On-Chain Transparency:** Anyone can query the contract to verify the true owner and metadata of an asset.
 
-## 🏗️ Architecture
+## Usage Instructions
+1. **Set Up Account:** Connect a Stellar wallet to interact with the contract.
+2. **Prepare Metadata:** Generate a cryptographic hash (SHA-256) of your digital asset file.
+3. **Register Asset:** Use the `register_asset` function to mint a new digital copyright record linked to your wallet address.
+4. **Verify Ownership:** Use the `get_owner` function to check the legal owner of a specific asset ID.
+5. **Query Info:** Use the `get_asset_info` function to retrieve the public metadata of a registered asset.
 
-The system utilizes a hybrid Web2/Web3 architecture:
-1. **Off-Chain (Metadata & Storage):** Large files (e.g., PDF, MP3) are stored on traditional cloud storage. A JSON file containing metadata is generated and its URL (`token_uri`) is captured.
-2. **On-Chain (Soroban):** The smart contract stores lightweight, essential data:
-    - `title`: Name of the asset.
-    - `asset_type`: Category of the asset.
-    - `file_hash`: Security fingerprint.
-    - `token_uri`: Pointer to off-chain data.
+## Future Scope
+- **Ownership Transfer:** Allow creators to securely transfer or sell the copyright of their digital assets.
+- **Licensing & Royalties:** Integrate automated royalty payments using Soroban tokens for asset usage.
+- **Decentralized Storage Integration:** Direct integration with IPFS or Arweave for fully decentralized off-chain metadata storage.
+- **User Dashboards:** Build an intuitive web frontend for creators to manage their intellectual property portfolios.
+- **Dispute Resolution:** Add mechanisms for community-driven or oracle-based IP dispute resolution.
 
-## 🛠️ Usage / Functions
+## Technology Stack
+- Rust and Soroban SDK for secure smart contract development.
+- Stellar blockchain for decentralized, immutable state management.
+- Cryptographic fingerprinting and timestamping for secure digital asset protection.
 
-### 1. Register Asset (`register_asset`)
-Mint a new digital copyright record.
-- **`creator`** (Address): The wallet address of the creator (Requires Auth signature).
-- **`asset_id`** (u32): A unique identifier for the asset.
-- **`metadata`** (AssetMetadata): A struct containing `title`, `asset_type`, `file_hash`, and `token_uri`.
+## Contribution
+Community contributions are welcomed from blockchain developers and intellectual property experts. Fork and submit pull requests to assist in further development.
 
-### 2. Get Asset Information (`get_asset_info`)
-Retrieve the public metadata of a registered asset.
-- **`asset_id`** (u32): The ID of the asset to query.
-- **Returns:** The `AssetMetadata` struct.
+## License
+This project is licensed under the MIT License.
 
-### 3. Verify Owner (`get_owner`)
-Check the legal owner of a specific asset.
-- **`asset_id`** (u32): The ID of the asset.
-- **Returns:** The `Address` of the current owner.
-
-## 🚀 How to Interact (CLI Example)
-
-If you have the Stellar CLI installed, you can query the contract directly:
-
-```bash
-# Get asset information for Asset ID 101
-stellar contract invoke \
-  --id CBRIWWK6PV7NW5UAEMHSTLECFDDD7XVZWYEZHV3MCSOOPXDBCZO5BA5I \
-  --network testnet \
-  -- \
-  get_asset_info \
-  --asset_id 101
+### Contract Detail
+ID: CBRIWWK6PV7NW5UAEMHSTLECFDDD7XVZWYEZHV3MCSOOPXDBCZO5BA5I
+![alt text](image.png)
